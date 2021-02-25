@@ -68,7 +68,7 @@ export default {
     97: '0x7b7b1583De1DeB32Ce6605F6deEbF24A0671c17C',
   },
   sale: {
-    56: '0x37e53c634DFbB5Ab346d50ac9EECEE49FC19bdd9',
-    97: '0xC5931E4e97c29D1dC510Ab8dF8f052123E1e35CE',
+    56: '0xab2177b8bd9fc86a2241e1f6ab0fc6392D889672',
+    97: '0xab2177b8bd9fc86a2241e1f6ab0fc6392D889672',
   },
 }

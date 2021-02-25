@@ -3,7 +3,7 @@ import { Ifo } from './types'
 const ifos: Ifo[] = [
   {
     id: 'berry',
-    address: '0x37e53c634DFbB5Ab346d50ac9EECEE49FC19bdd9',
+    address: '0xab2177b8bd9fc86a2241e1f6ab0fc6392D889672',
     isActive: true,
     name: 'ManySwap',
     subTitle: 'First AMM with affiliates on BSC',

@@ -116,17 +116,17 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
   const Ribbon = getRibbonComponent('coming_soon', TranslateString)
 
   const onBuyNow = useCallback(async () => {
-    console.log('OnBuy noew contract ', state.tempTextBoxValue)
+    console.log('OnBuyNow new contract1 ', state.tempTextBoxValue)
 
     try {
-      // await saleManyBnb(contract,state.tempTextBoxValue,account)
-      console.log('OnBuy noew contract ', state.tempTextBoxValue)
+      await saleManyBnb(contract,state.tempTextBoxValue,account)
+      console.log('OnBuy noew contract2 ', state.tempTextBoxValue)
     } catch (error) {
       console.log(error)
     }
 
-    console.log('OnBuy noew clicked ', state)
-  }, [state])
+    console.log('OnBuy noew clicked3 ', state)
+  }, [account , contract, state])
 
   useEffect(() => {
     const fetchProgress = async () => {
@@ -189,6 +189,7 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
                 setState({ ...state, tempTextBoxValue: value })
               }}
             />
+            <Text fontSize= "20px">{`You will get ${state.tempTextBoxValue * 250}   MANY Tokens `}</Text>
             <Button fullWidth onClick={() => onBuyNow()}>
               Buy now
             </Button>
