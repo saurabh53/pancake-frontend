@@ -12,12 +12,7 @@
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
     "generate:config": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/generateConfig"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn format",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
+  
   "browserslist": {
     "production": [
       ">0.2%",
@@ -48,9 +43,11 @@
     "node-fetch": "^2.6.1",
     "react": "^17.0.1",
     "react-chartjs-2": "^2.11.1",
+    "react-countdown": "^2.3.1",
     "react-countup": "^4.3.3",
     "react-dom": "^17.0.1",
     "react-feather": "^2.0.8",
+    "react-loader-spinner": "^4.0.0",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",

@@ -16,7 +16,7 @@ const Blurb = styled(Text)`
 `
 
 const StyledHero = styled.div`
-  background-image: linear-gradient(180deg, #53dee9 0%, #1fc7d4 100%);
+  background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
   padding-bottom: 40px;
   padding-top: 40px;
   margin-bottom: 32px;
@@ -27,8 +27,8 @@ const Hero = () => {
   return (
     <StyledHero>
       <Container>
-        <Title>{TranslateString(500, 'IFO: Initial Farm Offerings')}</Title>
-        <Blurb>{TranslateString(502, 'Buy new tokens with a brand new token sale model.')}</Blurb>
+        <Title>{TranslateString(500, 'Public Sale')}</Title>
+        <Blurb>{TranslateString(502, 'Buy MANY Tokens with BNB')}</Blurb>
       </Container>
     </StyledHero>
   )

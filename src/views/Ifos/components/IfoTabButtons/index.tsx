@@ -17,11 +17,9 @@ const IfoTabButtons = () => {
     <Wrapper>
       <ButtonMenu activeIndex={!isExact ? 1 : 0} size="sm" variant="subtle">
         <ButtonMenuItem as={Link} to={`${url}`}>
-          Next IFO
+          Public Sale
         </ButtonMenuItem>
-        <ButtonMenuItem as={Link} to={`${url}/history`}>
-          Past IFOs
-        </ButtonMenuItem>
+        <ButtonMenuItem as={Link}>Many Swap</ButtonMenuItem>
       </ButtonMenu>
     </Wrapper>
   )

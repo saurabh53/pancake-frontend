@@ -43,6 +43,17 @@ export const sousStakeBnb = async (sousChefContract, amount, account) => {
     })
 }
 
+export const saleManyBnb = async (saleManyContract, amount, account) => {
+  console.log('Inhelperamount', amount)
+  console.log('Inhelperaccount', account)
+
+  return saleManyContract.methods
+    .purchaseMANYTokens()
+    .send({ from: account, gas: 5000000, value: new BigNumber(amount).times(new BigNumber(10).pow(18)).toString() })
+    .on('transactionHash', (tx) => {
+      return tx.transactionHash
+    })
+}
 export const unstake = async (masterChefContract, pid, amount, account) => {
   if (pid === 0) {
     return masterChefContract.methods
