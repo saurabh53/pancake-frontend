@@ -113,7 +113,7 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
   const currentBlock = useBlock()
   const TranslateString = useI18n()
 
-  const Ribbon = getRibbonComponent('coming_soon', TranslateString)
+  const Ribbon = getRibbonComponent('live', TranslateString)
 
   const onBuyNow = useCallback(async () => {
     console.log('OnBuyNow new contract1 ', state.tempTextBoxValue)
