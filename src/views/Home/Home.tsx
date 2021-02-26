@@ -108,12 +108,11 @@ const Home: React.FC = () => {
         <Heading as="h3" size="xl" mb="20px" color="test">
           {TranslateString(578, 'Public Sale : 4 P.M UTC')}
         </Heading>
-        <div>
+       
           <Image src="/images/ifobackground.png" alt="ifo bunny" width={436} height={406} responsive />
-        </div>
-        <div>
+      
           <Image src="/images/ifobackground.png" alt="ifo bunny" width={436} height={406} responsive />
-        </div>
+        
       </Hero>
     </Page>
   )

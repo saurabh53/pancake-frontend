@@ -29,7 +29,7 @@ const config: MenuEntry[] = [
   {
     label: 'Info',
     icon: 'InfoIcon',
-    href: '/',
+    href: 'https://info.manyswap.io',
   },
 ]
 
