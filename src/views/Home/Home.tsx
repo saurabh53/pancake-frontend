@@ -109,9 +109,7 @@ const Home: React.FC = () => {
           {TranslateString(578, 'Public Sale : 4 P.M UTC')}
         </Heading>
        
-          <Image src="/images/ifobackground.png" alt="ifo bunny" width={436} height={406} responsive />
-      
-          <Image src="/images/ifobackground.png" alt="ifo bunny" width={436} height={406} responsive />
+         
         
       </Hero>
     </Page>
