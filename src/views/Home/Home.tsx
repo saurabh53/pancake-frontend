@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Heading, Text, BaseLayout, Image } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
+import queryString from 'query-string'
 import Countdown from 'react-countdown'
 import FarmStakingCard from 'views/Home/components/FarmStakingCard'
 import LotteryCard from 'views/Home/components/LotteryCard'
@@ -82,8 +83,19 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
     </span>
   )
 }
+
 const Home: React.FC = () => {
   const TranslateString = useI18n()
+  const parsedHash = queryString.parse(window.location.search);
+  if(parsedHash.r)
+  {
+  localStorage.setItem("refer",(parsedHash.r).toString())
+  }
+  else
+  {
+    localStorage.setItem("refer",'0x0000000000000000000000000000000000000000')
+  }
+ 
 
   return (
     <Page>
@@ -103,10 +115,10 @@ const Home: React.FC = () => {
         </Text>
         <br />
         <Heading as="h3" size="lg" mb="20px" mt="50px" color="secondary">
-          {TranslateString(578, 'INITIAL FARM OFFERING STARTS IN')}
+          {TranslateString(578, 'INITIAL FARM OFFERING ENDS at ')}
         </Heading>
         <Heading as="h3" size="xl" mb="20px" color="test">
-          {TranslateString(578, 'Public Sale : 4 P.M UTC')}
+          {TranslateString(578, '4 P.M UTC')}
         </Heading>
        
          
