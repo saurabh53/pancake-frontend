@@ -9,7 +9,7 @@ const config: MenuEntry[] = [
   {
     label: 'Trade',
     icon: 'TradeIcon',
-    href: `https://info.manyswap.io/?r=${window.localStorage.getItem('refer')}`,
+    href: `https://exchange.manyswap.io/?r=${window.localStorage.getItem('refer')}`,
   },
   {
     label: 'Farms',
