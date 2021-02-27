@@ -118,7 +118,7 @@ const Home: React.FC = () => {
           {TranslateString(578, 'INITIAL FARM OFFERING ENDS at ')}
         </Heading>
         <Heading as="h3" size="xl" mb="20px" color="test">
-          {TranslateString(578, '4 P.M UTC')}
+          {TranslateString(578, '28 Feb 2021 4 P.M UTC')}
         </Heading>
        
          
