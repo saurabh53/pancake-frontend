@@ -189,7 +189,7 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
                 setState({ ...state, tempTextBoxValue: value })
               }}
             />
-            <Text fontSize= "20px">{`You will get ${state.tempTextBoxValue * 250}   MANY Tokens `}</Text>
+            <Text fontSize= "20px">{`You will get ${state.tempTextBoxValue * 220}   MANY Tokens `}</Text>
             <Button fullWidth onClick={() => onBuyNow()}>
               Buy now
             </Button>
