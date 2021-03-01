@@ -8,7 +8,7 @@ const pools: PoolConfig[] = [
     stakingTokenAddress: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
     contractAddress: {
       97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
-      56: '0x73feaa1eE314F8c655E354234017bE2193C9E24E',
+      56: '0x1C515985c6318550Afb5bC590f4f0843b977250A',
     },
     poolCategory: PoolCategory.CORE,
     projectLink: 'https://pancakeswap.finance/',

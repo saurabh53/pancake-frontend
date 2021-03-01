@@ -95,7 +95,11 @@ interface FarmCardProps {
 
 const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice, ethPrice, ethereum, account }) => {
   const TranslateString = useI18n()
-
+  console.log("farm",farm);
+  console.log("cake",cakePrice);
+  console.log("bnb",bnbPrice);
+  console.log("eth",ethPrice);
+  console.log("ethereum",ethereum);
   const [showExpandableSection, setShowExpandableSection] = useState(false)
 
   const isCommunityFarm = communityFarms.includes(farm.tokenSymbol)
@@ -123,8 +127,8 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
     ? `$${Number(totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
     : '-'
 
-  const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('PANCAKE', '')
-  const earnLabel = farm.dual ? farm.dual.earnLabel : 'CAKE'
+  const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('MANYSWAP', '')
+  const earnLabel = farm.dual ? farm.dual.earnLabel : 'MANY'
   const farmAPY = farm.apy && farm.apy.times(new BigNumber(100)).toNumber().toLocaleString('en-US').slice(0, -1)
 
   const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses } = farm
@@ -133,7 +137,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
 
   return (
     <FCard>
-      {farm.tokenSymbol === 'CAKE' && <StyledCardAccent />}
+      {farm.tokenSymbol === 'MANY' && <StyledCardAccent />}
       <CardHeading
         lpLabel={lpLabel}
         multiplier={farm.multiplier}

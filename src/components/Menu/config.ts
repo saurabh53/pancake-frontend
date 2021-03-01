@@ -14,7 +14,7 @@ const config: MenuEntry[] = [
   {
     label: 'Farms',
     icon: 'FarmIcon',
-    href: '/',
+    href: '/farms',
   },
   {
     label: 'Public Sale',

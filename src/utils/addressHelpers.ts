@@ -8,7 +8,7 @@ export const getAddress = (address: Address): string => {
 }
 
 export const getCakeAddress = () => {
-  return getAddress(addresses.cake)
+  return getAddress(addresses.many)
 }
 export const getSaleAddress = () => {
   return getAddress(addresses.sale)

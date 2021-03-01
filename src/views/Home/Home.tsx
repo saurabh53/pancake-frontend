@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Heading, Text, BaseLayout, Image } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
-import queryString from 'query-string'
+
 import Countdown from 'react-countdown'
 import FarmStakingCard from 'views/Home/components/FarmStakingCard'
 import LotteryCard from 'views/Home/components/LotteryCard'
@@ -15,7 +15,7 @@ import WinCard from 'views/Home/components/WinCard'
 
 const Hero = styled.div`
   align-items: center;
-  background-image: url('/images/MANYHOMEBACKGROUND.png');
+  background-image: url('/images/space_Banner Mobile.svg');
   background-repeat: no-repeat;
   background-position: top center;
   display: flex;
@@ -27,8 +27,9 @@ const Hero = styled.div`
   text-align: center;
 
   ${({ theme }) => theme.mediaQueries.lg} {
+    background-image: url('/images/space_Banner Left.svg'), url('/images/space_Banner Right.svg');
     background-position: left center, right center;
-    height: 350px;
+    height: 165px;
     padding-top: 0;
   }
 `
@@ -86,45 +87,28 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 
 const Home: React.FC = () => {
   const TranslateString = useI18n()
-  const parsedHash = queryString.parse(window.location.search);
-  if(parsedHash.r)
-  {
-  localStorage.setItem("refer",(parsedHash.r).toString())
-  }
-  else
-  {
-    localStorage.setItem("refer",'0x0000000000000000000000000000000000000000')
-  }
  
 
   return (
     <Page>
-      <Hero>
-        <Heading as="h1" size="xl" mb="24px" color="header">
-          {TranslateString(576, 'ManySwap')}
-        </Heading>
-        <Heading as="h3" size="xl" mb="20px" color="secondary">
-          {TranslateString(578, 'Welcome to the Future of AMM')}
-        </Heading>
-
-        <Text color="secondary">
-          {TranslateString(600, 'ManySwap is powered by the amazing technology of Binance Smartchain')}
-        </Text>
-        <Text color="secondary">
-          {TranslateString(578, 'and is going to radically change the way we interact with money')}
-        </Text>
-        <br />
-        <Heading as="h3" size="lg" mb="20px" mt="50px" color="secondary">
-          {TranslateString(578, 'INITIAL FARM OFFERING ENDS at ')}
-        </Heading>
-        <Heading as="h3" size="xl" mb="20px" color="test">
-          {TranslateString(578, '28 Feb 2021 4 P.M UTC')}
-        </Heading>
-       
-         
-        
-      </Hero>
-    </Page>
+    <Hero>
+      <Heading as="h1" size="xl" mb="24px" color="secondary">
+        {TranslateString(576, 'ManySwap')}
+      </Heading>
+      <Text>{TranslateString(578, 'The #1 AMM and yield farm to give affiliate comissions  on Binance Smart Chain.')}</Text>
+    </Hero>
+    <div>
+      <Cards>
+        <FarmStakingCard />
+        <CakeStats />
+      </Cards>
+      
+      {/* <Cards>
+        <CakeStats />
+        <TotalValueLockedCard />
+      </Cards> */}
+    </div>
+  </Page>
   )
 }
 

@@ -2,6 +2,7 @@ import React, { useEffect, Suspense, lazy } from 'react'
 import { Router, Redirect, Route, Switch } from 'react-router-dom'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { ResetCSS } from '@pancakeswap-libs/uikit'
+import queryString from 'query-string'
 import BigNumber from 'bignumber.js'
 import { useFetchProfile, useFetchPublicData } from 'state/hooks'
 import GlobalStyle from './style/Global'
@@ -32,6 +33,15 @@ BigNumber.config({
 
 const App: React.FC = () => {
   const { account, connect } = useWallet()
+  const parsedHash = queryString.parse(window.location.search);
+  if(parsedHash.r)
+  {
+  localStorage.setItem("refer",(parsedHash.r).toString())
+  }
+  else
+  {
+    localStorage.setItem("refer",'0x0000000000000000000000000000000000000000')
+  }
 
   // Monkey patch warn() because of web3 flood
   // To be removed when web3 1.3.5 is released
@@ -43,6 +53,7 @@ const App: React.FC = () => {
     if (!account && window.localStorage.getItem('accountStatus')) {
       connect('injected')
     }
+  
   }, [account, connect])
 
   useFetchPublicData()

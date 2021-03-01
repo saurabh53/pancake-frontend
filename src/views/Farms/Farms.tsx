@@ -9,6 +9,8 @@ import { BLOCKS_PER_YEAR, CAKE_PER_BLOCK, CAKE_POOL_PID } from 'config'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
 import { useFarms, usePriceBnbBusd, usePriceCakeBusd, usePriceEthBusd } from 'state/hooks'
+
+// import { useFarms } from 'state/hooks'
 import useRefresh from 'hooks/useRefresh'
 import { fetchFarmUserDataAsync } from 'state/actions'
 import { QuoteToken } from 'config/constants/types'
@@ -36,7 +38,7 @@ const Farms: React.FC = () => {
 
   const [stackedOnly, setStackedOnly] = useState(false)
 
-  const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier !== '0X')
+  const activeFarms = farmsLP.filter((farm) => farm.multiplier !== '0X')
   const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier === '0X')
   const stackedOnlyFarms = activeFarms.filter(
     (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
@@ -97,7 +99,7 @@ const Farms: React.FC = () => {
   return (
     <Page>
       <Heading as="h1" size="lg" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
-        {TranslateString(696, 'Stake LP tokens to earn CAKE')}
+        {TranslateString(696, 'Stake LP tokens to earn MANY')}
       </Heading>
       <FarmTabButtons stackedOnly={stackedOnly} setStackedOnly={setStackedOnly} />
       <div>
@@ -111,7 +113,7 @@ const Farms: React.FC = () => {
           </Route>
         </FlexLayout>
       </div>
-      <Image src="/images/cakecat.png" alt="Pancake illustration" width={949} height={384} responsive />
+      <Image src="/images/space_Banner Mobile.svg" alt="ManySwap illustration" width={949} height={384} responsive />
     </Page>
   )
 }
