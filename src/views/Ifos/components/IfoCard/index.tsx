@@ -70,7 +70,7 @@ const getRibbonComponent = (status: IfoStatus, TranslateString: (translationId: 
   }
 
   if (status === 'live') {
-    return <CardRibbon variantColor="primary" text={TranslateString(999, 'LIVE NOW!')} />
+    return <CardRibbon variantColor="primary" text={TranslateString(999, 'FINISHED')} />
   }
 
   return null
@@ -179,8 +179,8 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
           secondsUntilEnd={state.secondsUntilEnd}
           block={isActive || isFinished ? state.endBlockNum : state.startBlockNum}
         /> */}
-        {!account && <UnlockButton fullWidth />}
-        {account && (
+        {/* {!account && <UnlockButton fullWidth />} */}
+        {/* {account && (
           <>
             <TextBox
               value={state.tempTextBoxValue}
@@ -194,7 +194,7 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
               Buy now
             </Button>
           </>
-        )}
+        )} */}
         {/* {(isActive || isFinished) && (
           <IfoCardContribute
             address={address}
