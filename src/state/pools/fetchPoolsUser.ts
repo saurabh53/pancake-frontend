@@ -13,12 +13,13 @@ import BigNumber from 'bignumber.js'
 // BNB pools use the native BNB token (wrapping ? unwrapping is done at the contract level)
 const nonBnbPools = poolsConfig.filter((p) => p.stakingTokenName !== QuoteToken.BNB)
 const bnbPools = poolsConfig.filter((p) => p.stakingTokenName === QuoteToken.BNB)
-const nonMasterPools = poolsConfig.filter((p) => p.sousId !== 0)
+const nonMasterPools = poolsConfig.filter((p) => p.sousId !== 11)
 const web3 = getWeb3()
 const masterChefContract = new web3.eth.Contract((masterChefABI as unknown) as AbiItem, getMasterChefAddress())
 
 export const fetchPoolsAllowance = async (account) => {
   const calls = nonBnbPools.map((p) => ({
+    
     address: p.stakingTokenAddress,
     name: 'allowance',
     params: [account, getAddress(p.contractAddress)],
@@ -60,7 +61,7 @@ export const fetchUserStakeBalances = async (account) => {
     name: 'userInfo',
     params: [account],
   }))
-  const userInfo = await multicall(sousChefABI, calls)
+  const userInfo = await multicall(masterChefABI, calls)
   const stakedBalances = nonMasterPools.reduce(
     (acc, pool, index) => ({
       ...acc,
@@ -70,9 +71,9 @@ export const fetchUserStakeBalances = async (account) => {
   )
 
   // Cake / Cake pool
-  const { amount: masterPoolAmount } = await masterChefContract.methods.userInfo('0', account).call()
+  const { amount: masterPoolAmount } = await masterChefContract.methods.userInfo('11', account).call()
 
-  return { ...stakedBalances, 0: new BigNumber(masterPoolAmount).toJSON() }
+  return { ...stakedBalances, 11: new BigNumber(masterPoolAmount).toJSON() }
 }
 
 export const fetchUserPendingRewards = async (account) => {
@@ -81,7 +82,7 @@ export const fetchUserPendingRewards = async (account) => {
     name: 'pendingReward',
     params: [account],
   }))
-  const res = await multicall(sousChefABI, calls)
+  const res = await multicall(masterChefABI, calls)
   const pendingRewards = nonMasterPools.reduce(
     (acc, pool, index) => ({
       ...acc,
@@ -91,7 +92,7 @@ export const fetchUserPendingRewards = async (account) => {
   )
 
   // Cake / Cake pool
-  const pendingReward = await masterChefContract.methods.pendingMany('0', account).call()
+  const pendingReward = await masterChefContract.methods.pendingMany('11', account).call()
 
-  return { ...pendingRewards, 0: new BigNumber(pendingReward).toJSON() }
+  return { ...pendingRewards, 11: new BigNumber(pendingReward).toJSON() }
 }

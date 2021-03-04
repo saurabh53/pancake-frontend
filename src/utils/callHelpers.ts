@@ -55,7 +55,7 @@ export const saleManyBnb = async (saleManyContract, amount, account) => {
     })
 }
 export const unstake = async (masterChefContract, pid, amount, account) => {
-  if (pid === 0) {
+  if (pid === 11) {
     return masterChefContract.methods
       .withdraw(pid,new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
       .send({ from: account, gas: 200000 })
@@ -109,7 +109,7 @@ export const sousEmegencyUnstake = async (sousChefContract, amount, account) => 
 }
 
 export const harvest = async (masterChefContract, pid, account) => {
-  if (pid === 0) {
+  if (pid === 11) {
     return masterChefContract.methods
       .withdraw(pid,'0')
       .send({ from: account, gas: 200000 })

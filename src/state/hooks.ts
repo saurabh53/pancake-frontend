@@ -63,13 +63,16 @@ export const useFarmUser = (pid) => {
 export const usePools = (account): Pool[] => {
   const { fastRefresh } = useRefresh()
   const dispatch = useDispatch()
+  
   useEffect(() => {
     if (account) {
       dispatch(fetchPoolsUserDataAsync(account))
+      
     }
   }, [account, dispatch, fastRefresh])
 
   const pools = useSelector((state: State) => state.pools.data)
+  console.log("pools",pools)
   return pools
 }
 

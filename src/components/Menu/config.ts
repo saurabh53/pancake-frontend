@@ -17,6 +17,11 @@ const config: MenuEntry[] = [
     href: '/farms',
   },
   {
+    label: 'StaFi',
+    icon: 'PoolIcon',
+    href: '/pools',
+  },
+  {
     label: 'Public Sale',
     icon: 'IfoIcon',
     href: '/ifo',
@@ -32,6 +37,19 @@ const config: MenuEntry[] = [
     href: 'https://info.manyswap.io/',
    
   },
+  {
+    label: 'More',
+    icon: 'MoreIcon',
+    items: [
+     
+      {
+        label: 'Github',
+        href: 'https://github.com/manyswap',
+      },
+      
+    ],
+  },
+  
 ]
 
 export default config
