@@ -19,6 +19,7 @@ import { fetchProfile } from './profile'
 import { fetchTeam, fetchTeams } from './teams'
 import { fetchAchievements } from './achievements'
 
+
 const ZERO = new BigNumber(0)
 
 export const useFetchPublicData = () => {
@@ -204,6 +205,7 @@ export const useTotalValue = (): BigNumber => {
   const bnbPrice = usePriceBnbBusd()
   const cakePrice = usePriceCakeBusd()
   const ethPrice = usePriceEthBusd()
+  
   let value = new BigNumber(0)
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
