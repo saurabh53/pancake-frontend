@@ -34,16 +34,21 @@ const CakeStats = () => {
         </Heading>
         <Row>
           <Text fontSize="14px">{TranslateString(536, 'Total MANY Supply')}</Text>
-          {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} />}
+          {cakeSupply && <CardValue fontSize="14px" value={getBalanceNumber(totalSupply)} />}
         </Row>
         <Row>
           <Text fontSize="14px">{TranslateString(538, 'Total MANY Burned')}</Text>
           <CardValue fontSize="14px" value={getBalanceNumber(burnedBalance)} />
         </Row>
         <Row>
+          <Text fontSize="14px">{TranslateString(536, 'Total MANY In Circulation')}</Text>
+          {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} />}
+        </Row>
+        <Row>
           <Text fontSize="14px">{TranslateString(540, 'New MANY/block')}</Text>
           <CardValue fontSize="14px" decimals={0} value={10} />
         </Row>
+       
       </CardBody>
     </StyledCakeStats>
   )

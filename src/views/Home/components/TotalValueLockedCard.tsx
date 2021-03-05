@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { Card, CardBody, Heading, Skeleton, Text } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import { useGetStats } from 'hooks/api'
+import { useTotalValue } from '../../../state/hooks'
+import CardValue from './CardValue'
 
 const StyledTotalValueLockedCard = styled(Card)`
   align-items: center;
@@ -13,6 +15,7 @@ const StyledTotalValueLockedCard = styled(Card)`
 const TotalValueLockedCard = () => {
   const TranslateString = useI18n()
   const data = useGetStats()
+  const totalValue = useTotalValue()
   const tvl = data ? data.total_value_locked_all.toLocaleString('en-US', { maximumFractionDigits: 0 }) : null
 
   return (
@@ -23,8 +26,9 @@ const TotalValueLockedCard = () => {
         </Heading>
         {data ? (
           <>
-            <Heading size="xl">{`$${tvl}`}</Heading>
-            <Text color="textSubtle">{TranslateString(764, 'Across all LPs and Syrup Pools')}</Text>
+            {/* <Heading size="xl">{`$${tvl}`}</Heading> */}
+            <CardValue value={totalValue.toNumber()} prefix="$" decimals={2} />
+            <Text color="textSubtle">{TranslateString(764, 'Across all Farms & Pools')}</Text>
           </>
         ) : (
           <>

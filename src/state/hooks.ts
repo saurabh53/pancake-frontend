@@ -4,7 +4,7 @@ import { kebabCase } from 'lodash'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { Toast, toastTypes } from '@pancakeswap-libs/uikit'
 import { useSelector, useDispatch } from 'react-redux'
-import { Team } from 'config/constants/types'
+import { Team ,QuoteToken} from 'config/constants/types'
 import useRefresh from 'hooks/useRefresh'
 import {
   fetchFarmsPublicDataAsync,
@@ -72,7 +72,7 @@ export const usePools = (account): Pool[] => {
   }, [account, dispatch, fastRefresh])
 
   const pools = useSelector((state: State) => state.pools.data)
-  console.log("pools",pools)
+  console.log("poolssssssss",pools)
   return pools
 }
 
@@ -198,4 +198,31 @@ export const useFetchAchievements = () => {
 export const useAchievements = () => {
   const achievements: AchievementState['data'] = useSelector((state: State) => state.achievements.data)
   return achievements
+}
+export const useTotalValue = (): BigNumber => {
+  const farms = useFarms()
+  const bnbPrice = usePriceBnbBusd()
+  const cakePrice = usePriceCakeBusd()
+  const ethPrice = usePriceEthBusd()
+  let value = new BigNumber(0)
+  for (let i = 0; i < farms.length; i++) {
+    const farm = farms[i]
+    if (farm.lpTotalInQuoteToken) {
+      let val
+      
+      if (farm.quoteTokenSymbol === QuoteToken.BNB) {
+        val = bnbPrice.times(farm.lpTotalInQuoteToken)
+      } else if (farm.quoteTokenSymbol === QuoteToken.MANY) {
+        val = cakePrice.times(farm.lpTotalInQuoteToken)
+      } else if(farm.quoteTokenSymbol === QuoteToken.ETH) 
+      {
+        val = ethPrice.times(farm.lpTotalInQuoteToken)
+      }
+      else {
+        val = farm.lpTotalInQuoteToken
+      }
+      value = value.plus(val)
+    }
+  }
+  return value
 }
