@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
+
 import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
+
 import { getBalanceNumber } from 'utils/formatBalance'
 import useI18n from 'hooks/useI18n'
 import { ChevronDown, ChevronUp } from 'react-feather'
 import Balance from 'components/Balance'
 import { CommunityTag, CoreTag, BinanceTag } from 'components/Tags'
 import { PoolCategory } from 'config/constants/types'
+import { usePriceCakeBusd } from 'state/hooks'
+import CardValue from './CardValue'
 
 const tags = {
   [PoolCategory.BINANCE]: BinanceTag,
@@ -71,6 +75,9 @@ const TokenLink = styled.a`
   text-decoration: none;
   color: #12aab5;
 `
+const Wrapper = styled.div`
+  margin-top: 24px;
+`
 
 const CardFooter: React.FC<Props> = ({
   projectLink,
@@ -86,7 +93,7 @@ const CardFooter: React.FC<Props> = ({
 
   const handleClick = () => setIsOpen(!isOpen)
   const Tag = tags[poolCategory]
-
+  const cakePrice = usePriceCakeBusd()
   return (
     <StyledFooter isFinished={isFinished}>
       <Row>
@@ -109,9 +116,27 @@ const CardFooter: React.FC<Props> = ({
               </Label>
             </FlexFull>
             <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(totalStaked)} />
+            
           </Row>
+          <Row style={{ marginBottom: '4px' }}>
+         
+            <FlexFull>
+              <Label>
+                <span role="img" aria-label="syrup">
+                  {' '}
+                </span>
+                {TranslateString(408, 'TVL')}
+              
+              </Label>
+            </FlexFull>
+           
+            <CardValue fontSize="14px" isDisabled={isFinished} unit="$" value={getBalanceNumber(totalStaked)* cakePrice.toNumber()} />
+            
+          </Row>
+          
           {blocksUntilStart > 0 && (
             <Row>
+              
               <FlexFull>
                 <Label>{TranslateString(410, 'Start')}:</Label>
               </FlexFull>
