@@ -56,6 +56,8 @@ const Farms: React.FC = () => {
         const cakeRewardPerBlock = CAKE_PER_BLOCK.times(farm.poolWeight)
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
 
+        console.log("CAKE_PER_BLOCKeeeeeeeeee",BLOCKS_PER_YEAR)
+
         // cakePriceInQuote * cakeRewardPerYear / lpTotalInQuoteToken
         let apy = cakePriceVsBNB.times(cakeRewardPerYear).div(farm.lpTotalInQuoteToken)
 

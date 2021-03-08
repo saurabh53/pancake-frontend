@@ -2,6 +2,7 @@ import contracts from './contracts'
 import { FarmConfig, QuoteToken } from './types'
 
 const farms: FarmConfig[] = [
+ 
   {
     
       pid: 0,
@@ -167,7 +168,83 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
+  },
+  {
+    pid: 11,
+    lpSymbol: 'MANY-JulD LP',
+    lpAddresses: {
+      97: '0xeFfFB5e4FF883Cf1db4Abf34C5CCDfeC8C317D4d',
+      56: '0xeFfFB5e4FF883Cf1db4Abf34C5CCDfeC8C317D4d',
+    },
+    tokenSymbol: 'MANY',
+    tokenAddresses: {
+      97: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+      56: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+    },
+    quoteTokenSymbol: QuoteToken.MANY,
+    quoteTokenAdresses: contracts.many,
+  },
+  {
+    pid: 12,
+    lpSymbol: 'MANY-EGG LP',
+    lpAddresses: {
+      97: '0xc4E28e916049df8100Bc8fbF9dbb49474B9f53c4',
+      56: '0xc4E28e916049df8100Bc8fbF9dbb49474B9f53c4',
+    },
+    tokenSymbol: 'MANY',
+    tokenAddresses: {
+      97: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+      56: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+    },
+    quoteTokenSymbol: QuoteToken.MANY,
+    quoteTokenAdresses: contracts.many,
+  },
+  {
+    pid: 13,
+    lpSymbol: 'MANY-WATCH LP',
+    lpAddresses: {
+      97: '0x17C22c02ce784a657E17643abb3e9E94a8b8d6fb',
+      56: '0x17C22c02ce784a657E17643abb3e9E94a8b8d6fb',
+    },
+    tokenSymbol: 'MANY',
+    tokenAddresses: {
+      97: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+      56: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+    },
+    quoteTokenSymbol: QuoteToken.MANY,
+    quoteTokenAdresses: contracts.many,
+  },
+  {
+    pid: 14,
+    lpSymbol: 'MANY-BSCX LP',
+    lpAddresses: {
+      97: '0x3af1c34CFD00f757DA51199E085aC771EaA308e4',
+      56: '0x3af1c34CFD00f757DA51199E085aC771EaA308e4',
+    },
+    tokenSymbol: 'MANY',
+    tokenAddresses: {
+      97: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+      56: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+    },
+    quoteTokenSymbol: QuoteToken.MANY,
+    quoteTokenAdresses: contracts.many,
+  },
+  {
+    pid: 15,
+    lpSymbol: 'MANY-AUTO LP',
+    lpAddresses: {
+      97: '0xC8E08C72975E3C1CC49c7150603e15EF34DA20C7',
+      56: '0xC8E08C72975E3C1CC49c7150603e15EF34DA20C7',
+    },
+    tokenSymbol: 'MANY',
+    tokenAddresses: {
+      97: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+      56: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+    },
+    quoteTokenSymbol: QuoteToken.MANY,
+    quoteTokenAdresses: contracts.many,
   }
+  
   // {
   //   pid: 77,
   //   lpSymbol: 'DODO-BNB LP',
