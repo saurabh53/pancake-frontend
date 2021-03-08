@@ -46,6 +46,10 @@ const config: MenuEntry[] = [
         label: 'Github',
         href: 'https://github.com/manyswap',
       },
+      {
+        label: 'Affiliate',
+        href: '/affiliate',
+      },
       
     ],
   },
