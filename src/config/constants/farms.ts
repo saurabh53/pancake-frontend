@@ -170,7 +170,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.wbnb,
   },
   {
-    pid: 11,
+    pid: 12,
     lpSymbol: 'MANY-JulD LP',
     lpAddresses: {
       97: '0xeFfFB5e4FF883Cf1db4Abf34C5CCDfeC8C317D4d',
@@ -185,7 +185,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.many,
   },
   {
-    pid: 12,
+    pid: 13,
     lpSymbol: 'MANY-EGG LP',
     lpAddresses: {
       97: '0xc4E28e916049df8100Bc8fbF9dbb49474B9f53c4',
@@ -200,7 +200,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.many,
   },
   {
-    pid: 13,
+    pid: 14,
     lpSymbol: 'MANY-WATCH LP',
     lpAddresses: {
       97: '0x17C22c02ce784a657E17643abb3e9E94a8b8d6fb',
@@ -215,7 +215,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.many,
   },
   {
-    pid: 14,
+    pid: 15,
     lpSymbol: 'MANY-BSCX LP',
     lpAddresses: {
       97: '0x3af1c34CFD00f757DA51199E085aC771EaA308e4',
@@ -230,7 +230,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.many,
   },
   {
-    pid: 15,
+    pid: 16,
     lpSymbol: 'MANY-AUTO LP',
     lpAddresses: {
       97: '0xC8E08C72975E3C1CC49c7150603e15EF34DA20C7',
