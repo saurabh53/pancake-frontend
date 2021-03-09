@@ -22,6 +22,12 @@ const config: MenuEntry[] = [
     href: '/pools',
   },
   {
+    label: 'Affiliate',
+    icon: 'InfoIcon',
+    href: '/affiliate',
+   
+  },
+  {
     label: 'Public Sale',
     icon: 'IfoIcon',
     href: '/ifo',
@@ -31,12 +37,14 @@ const config: MenuEntry[] = [
     icon: 'MoreIcon',
     href: 'https://manyswap.io/IFO_GUIDE.pdf',
   },
+  
   {
     label: 'Info',
     icon: 'InfoIcon',
     href: 'https://info.manyswap.io/',
    
   },
+   
   {
     label: 'More',
     icon: 'MoreIcon',
@@ -45,10 +53,6 @@ const config: MenuEntry[] = [
       {
         label: 'Github',
         href: 'https://github.com/manyswap',
-      },
-      {
-        label: 'Affiliate',
-        href: '/affiliate',
       },
       
     ],
