@@ -206,7 +206,7 @@ export const useTotalValue = (): BigNumber => {
   const cakePrice = usePriceCakeBusd()
   const ethPrice = usePriceEthBusd()
   
- 
+  const pools = usePools(account)
   let value = new BigNumber(0)
   
   for (let i = 0; i < farms.length; i++) {
@@ -229,20 +229,6 @@ export const useTotalValue = (): BigNumber => {
       value = value.plus(val)
     }
   }
-  
-  return value
-}
-export const useTotalValueInPools = (): BigNumber => {
-  const { account } = useWallet()
-  
-  const bnbPrice = usePriceBnbBusd()
-  const cakePrice = usePriceCakeBusd()
-  const ethPrice = usePriceEthBusd()
-  const pools = usePools(account)
-  console.log(pools.length)
-  let value = new BigNumber(0)
-  
-  
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i]
     console.log("pool.totalStaked",pool.totalStaked)
@@ -264,6 +250,6 @@ export const useTotalValueInPools = (): BigNumber => {
       value = value.plus(val)
     
   }
- 
+  
   return value
 }

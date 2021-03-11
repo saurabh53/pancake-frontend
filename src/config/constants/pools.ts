@@ -59,7 +59,7 @@ const pools: PoolConfig[] = [
   },
   {
     sousId: 21,
-    image: 'BUSD',
+    image: 'busd',
     displayName: 'BUSD',
     tokenName: 'MANY',
     stakingTokenName: QuoteToken.BUSD,

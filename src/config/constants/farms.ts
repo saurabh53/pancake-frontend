@@ -243,6 +243,51 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.MANY,
     quoteTokenAdresses: contracts.many,
+  },
+  {
+    pid: 18,
+    lpSymbol: 'MANY-DODO LP',
+    lpAddresses: {
+      97: '0x5f5B8ba1F2C1871F3117CE8365A1c7cb2797804a',
+      56: '0x5f5B8ba1F2C1871F3117CE8365A1c7cb2797804a',
+    },
+    tokenSymbol: 'MANY',
+    tokenAddresses: {
+      97: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+      56: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+    },
+    quoteTokenSymbol: QuoteToken.MANY,
+    quoteTokenAdresses: contracts.many,
+  },
+  {
+    pid: 19,
+    lpSymbol: 'MANY-HELMET LP',
+    lpAddresses: {
+      97: '0x80Fd561BF952bCA637615eF54CCB0290b3f6AD71',
+      56: '0x80Fd561BF952bCA637615eF54CCB0290b3f6AD71',
+    },
+    tokenSymbol: 'MANY',
+    tokenAddresses: {
+      97: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+      56: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+    },
+    quoteTokenSymbol: QuoteToken.MANY,
+    quoteTokenAdresses: contracts.many,
+  },
+  {
+    pid: 17,
+    lpSymbol: 'MANY-SFP LP',
+    lpAddresses: {
+      97: '0xA817890c9e2454396cf4330a9a91934a462A022e',
+      56: '0xA817890c9e2454396cf4330a9a91934a462A022e',
+    },
+    tokenSymbol: 'MANY',
+    tokenAddresses: {
+      97: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+      56: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+    },
+    quoteTokenSymbol: QuoteToken.MANY,
+    quoteTokenAdresses: contracts.many,
   }
   
   // {
