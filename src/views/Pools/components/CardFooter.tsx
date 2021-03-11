@@ -25,6 +25,7 @@ interface Props {
   isFinished: boolean
   blocksUntilStart: number
   poolCategory: PoolCategory
+  displayName:string
 }
 
 const StyledFooter = styled.div<{ isFinished: boolean }>`
@@ -86,6 +87,7 @@ const CardFooter: React.FC<Props> = ({
   isFinished,
   blocksUntilStart,
   poolCategory,
+  displayName
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const TranslateString = useI18n()
@@ -94,6 +96,7 @@ const CardFooter: React.FC<Props> = ({
   const handleClick = () => setIsOpen(!isOpen)
   const Tag = tags[poolCategory]
   const isBnbPool = poolCategory === PoolCategory.BINANCE
+  const isBusdPool = displayName === "BUSD"
   const cakePrice = usePriceCakeBusd()
   const bnbPrice = usePriceBnbBusd()
   return (
@@ -132,11 +135,12 @@ const CardFooter: React.FC<Props> = ({
               
               </Label>
             </FlexFull>
-            {isBnbPool ? 
-            <CardValue fontSize="14px" isDisabled={isFinished} unit="$" value={getBalanceNumber(totalStaked)* bnbPrice.toNumber()} />
-:
-            <CardValue fontSize="14px" isDisabled={isFinished} unit="$" value={getBalanceNumber(totalStaked)* cakePrice.toNumber()} />
-}
+            {isBnbPool &&
+            <CardValue fontSize="14px" isDisabled={isFinished} unit="$" value={getBalanceNumber(totalStaked)* bnbPrice.toNumber()} />}
+           {isBusdPool && 
+            <CardValue fontSize="14px" isDisabled={isFinished} unit="$" value={getBalanceNumber(totalStaked)} />}
+            {!isBnbPool && !isBusdPool && <CardValue fontSize="14px" isDisabled={isFinished} unit="$" value={getBalanceNumber(totalStaked)*cakePrice.toNumber()} />}
+
           </Row>
           
           {blocksUntilStart > 0 && (
