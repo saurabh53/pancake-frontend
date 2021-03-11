@@ -6,6 +6,7 @@ import { Toast, toastTypes } from '@pancakeswap-libs/uikit'
 import { useSelector, useDispatch } from 'react-redux'
 import { Team ,QuoteToken} from 'config/constants/types'
 import useRefresh from 'hooks/useRefresh'
+import { getBalanceNumber } from 'utils/formatBalance'
 import {
   fetchFarmsPublicDataAsync,
   fetchPoolsPublicDataAsync,
@@ -73,7 +74,7 @@ export const usePools = (account): Pool[] => {
   }, [account, dispatch, fastRefresh])
 
   const pools = useSelector((state: State) => state.pools.data)
-  console.log("poolssssssss",pools)
+ 
   return pools
 }
 
@@ -87,7 +88,7 @@ export const usePoolFromPid = (sousId): Pool => {
 export const usePriceBnbBusd = (): BigNumber => {
   const pid = 2 // BUSD-BNB LP
   const farm = useFarmFromPid(pid)
-  console.log("farm.tokenPriceVsQuote",farm.tokenPriceVsQuote)
+  
   return farm.tokenPriceVsQuote ? new BigNumber(1).div(farm.tokenPriceVsQuote) : ZERO
 }
 
@@ -95,8 +96,7 @@ export const usePriceCakeBusd = (): BigNumber => {
   const pid = 0 // CAKE-BNB LP
   const bnbPriceUSD = usePriceBnbBusd()
   const farm = useFarmFromPid(pid)
-  console.log("bnbPriceUSD",bnbPriceUSD)
-  console.log("usePriceCakeBusd",bnbPriceUSD.times(farm.tokenPriceVsQuote))
+ 
   return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
 }
 
@@ -104,8 +104,7 @@ export const usePriceEthBusd = (): BigNumber => {
   const pid = 4 // ETH-BNB LP
   const bnbPriceUSD = usePriceBnbBusd()
   const farm = useFarmFromPid(pid)
-  console.log("tokenPriceVsQuoteeth",farm.tokenPriceVsQuote)
-  console.log("bnbPriceUSDeth",bnbPriceUSD)
+ 
   return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
 }
 
@@ -201,12 +200,15 @@ export const useAchievements = () => {
   return achievements
 }
 export const useTotalValue = (): BigNumber => {
+  const { account } = useWallet()
   const farms = useFarms()
   const bnbPrice = usePriceBnbBusd()
   const cakePrice = usePriceCakeBusd()
   const ethPrice = usePriceEthBusd()
   
+ 
   let value = new BigNumber(0)
+  
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
     if (farm.lpTotalInQuoteToken) {
@@ -214,6 +216,7 @@ export const useTotalValue = (): BigNumber => {
       
       if (farm.quoteTokenSymbol === QuoteToken.BNB) {
         val = bnbPrice.times(farm.lpTotalInQuoteToken)
+         
       } else if (farm.quoteTokenSymbol === QuoteToken.MANY) {
         val = cakePrice.times(farm.lpTotalInQuoteToken)
       } else if(farm.quoteTokenSymbol === QuoteToken.ETH) 
@@ -226,5 +229,41 @@ export const useTotalValue = (): BigNumber => {
       value = value.plus(val)
     }
   }
+  
+  return value
+}
+export const useTotalValueInPools = (): BigNumber => {
+  const { account } = useWallet()
+  
+  const bnbPrice = usePriceBnbBusd()
+  const cakePrice = usePriceCakeBusd()
+  const ethPrice = usePriceEthBusd()
+  const pools = usePools(account)
+  console.log(pools.length)
+  let value = new BigNumber(0)
+  
+  
+  for (let i = 0; i < pools.length; i++) {
+    const pool = pools[i]
+    console.log("pool.totalStaked",pool.totalStaked)
+      let val
+      
+      if (pool.stakingTokenName === QuoteToken.BNB) {
+        val = bnbPrice.times(getBalanceNumber(pool.totalStaked))
+        
+      } else if (pool.stakingTokenName === QuoteToken.MANY) {
+        val = cakePrice.times(getBalanceNumber(pool.totalStaked))
+       
+      } else if(pool.stakingTokenName === QuoteToken.ETH) 
+      {
+        val = ethPrice.times(getBalanceNumber(pool.totalStaked))
+      }
+      else {
+        val = getBalanceNumber(pool.totalStaked)
+      }
+      value = value.plus(val)
+    
+  }
+ 
   return value
 }

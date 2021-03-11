@@ -29,7 +29,7 @@ const Farm: React.FC = () => {
   const ethPriceBnb = usePriceEthBnb()
   const block = useBlock()
   const [stackedOnly, setStackedOnly] = useState(false)
- console.log("pooooooolss",pools)
+ 
   const priceToBnb = (tokenName: string, tokenPrice: BigNumber, quoteToken: QuoteToken): BigNumber => {
     const tokenPriceBN = new BigNumber(tokenPrice)
     if (tokenName === 'BNB') {
@@ -42,6 +42,7 @@ const Farm: React.FC = () => {
   }
 
   const poolsWithApy = pools.map((pool) => {
+    console.log(pool.stakingFees)
     const isBnbPool = pool.poolCategory === PoolCategory.BINANCE
     const rewardTokenFarm = farms.find((f) => f.tokenSymbol === pool.tokenName)
     const stakingTokenFarm = farms.find((s) => s.tokenSymbol === pool.stakingTokenName)
@@ -62,7 +63,7 @@ const Farm: React.FC = () => {
 
     const totalRewardPricePerYear = rewardTokenPriceInBNB.times(pool.tokenPerBlock).times(BLOCKS_PER_YEAR)
     const totalStakingTokenInPool = stakingTokenPriceInBNB.times(getBalanceNumber(pool.totalStaked))
-    console.log("totalStakingTokenInPool",totalStakingTokenInPool)
+    
     const apy = totalRewardPricePerYear.div(totalStakingTokenInPool).times(100)
 
     return {

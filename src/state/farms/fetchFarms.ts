@@ -9,7 +9,7 @@ const fetchFarms = async () => {
   const data = await Promise.all(
     farmsConfig.map(async (farmConfig) => {
       const lpAdress = getAddress(farmConfig.lpAddresses)
-      console.log("lpAdresseeeeeeeeeeeeeeeeeth", getMasterChefAddress())
+     
       const calls = [
         // Balance of token in the LP contract
         {
@@ -70,8 +70,7 @@ const fetchFarms = async () => {
       const quoteTokenAmount = new BigNumber(quoteTokenBlanceLP)
         .div(new BigNumber(10).pow(quoteTokenDecimals))
         .times(lpTokenRatio)
-        console.log("tokenAmount",tokenAmount)
-        console.log("quoteTokenAmount",quoteTokenAmount)
+       
       const [info, totalAllocPoint] = await multicall(masterchefABI, [
         {
           address: getMasterChefAddress(),

@@ -30,10 +30,30 @@ const pools: PoolConfig[] = [
     poolCategory: PoolCategory.CORE,
     projectLink: 'https://manyswap.io/',
     harvest: true,
-    tokenPerBlock: '10',
+    tokenPerBlock: '5',
     sortOrder: 1,
     isFinished: false,
     tokenDecimals: 18,
+    stakingFees: 0,
+  },
+  {
+    sousId: 20,
+    image: 'BNB',
+    tokenName: 'MANY',
+    stakingTokenName: QuoteToken.BNB,
+    // stakingTokenAddress: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+    contractAddress: {
+      97: '0xdf648fb2F3c9285E537EDE86337449d346c91CbA',
+      56: '0xdf648fb2F3c9285E537EDE86337449d346c91CbA',
+    },
+    poolCategory: PoolCategory.BINANCE,
+    projectLink: 'https://manyswap.io/',
+    harvest: true,
+    tokenPerBlock: '0.1',
+    sortOrder: 1,
+    isFinished: false,
+    tokenDecimals: 18,
+    stakingFees: 4,
   }
 ]
 

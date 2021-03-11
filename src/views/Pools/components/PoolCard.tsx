@@ -41,6 +41,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     stakingTokenName,
     stakingTokenAddress,
     projectLink,
+    stakingFees,
     harvest,
     apy,
     tokenDecimals,
@@ -52,7 +53,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     userData,
     stakingLimit,
   } = pool
-  console.log("user dataaaaaaaaaaaaa", userData)
+
+  
   // Pools using native BNB behave differently than pools using a token
   const isBnbPool = poolCategory === PoolCategory.BINANCE
   const TranslateString = useI18n()
@@ -60,6 +62,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const { account } = useWallet()
   const block = useBlock()
   const { onApprove } = useSousApprove(stakingTokenContract, sousId)
+  
   const { onStake } = useSousStake(sousId, isBnbPool)
   const { onUnstake } = useSousUnstake(sousId)
   const { onReward } = useSousHarvest(sousId, isBnbPool)
@@ -77,11 +80,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const isOldSyrup = stakingTokenName === QuoteToken.SYRUP
   const accountHasStakedBalance = stakedBalance?.toNumber() > 0
   const needsApproval = !accountHasStakedBalance && !allowance.toNumber() && !isBnbPool
-  console.log("userData",userData)
-  console.log("needsApproval",needsApproval)
-  console.log("accountHasStakedBalance",accountHasStakedBalance)
-  console.log("allowance",allowance.toNumber())
-  console.log("isBnbPool",isBnbPool)
+  
   const isCardActive = isFinished && accountHasStakedBalance
   
   const convertedLimit = new BigNumber(stakingLimit).multipliedBy(new BigNumber(10).pow(tokenDecimals))
@@ -106,6 +105,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       setRequestedApproval(true)
       const txHash = await onApprove()
       // user rejected tx or didn't go thru
+      console.log("txHashbnb",txHash)
       if (!txHash) {
         setRequestedApproval(false)
       }
@@ -131,9 +131,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
               disabled={!earnings.toNumber() || pendingTx}
               text={pendingTx ? 'Collecting' : 'Harvest'}
               onClick={async () => {
-                console.log('account',account)
-                console.log('harvest',harvest)
-                console.log('isFinished',isFinished)
+                
                 setPendingTx(true)
                 await onReward()
                 setPendingTx(false)
@@ -195,7 +193,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           {isFinished || isOldSyrup || !apy || apy?.isNaN() || !apy?.isFinite() ? (
             '-'
           ) : (
-            <Balance fontSize="14px" isDisabled={isFinished} value={apy?.toNumber()} decimals={2} unit="%" />
+            <Balance fontSize="14px" isDisabled={isFinished} value={stakingFees} decimals={2} unit="%" />
           )}
         </StyledDetails>
         <StyledDetails>
@@ -206,6 +204,12 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
             {TranslateString(384, 'Your Stake')}:
           </div>
           <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
+        </StyledDetails>
+        <StyledDetails>
+          <div style={{ flex: 1 }}>{TranslateString(736, 'Deposit Fees')}:</div>
+         
+            <Balance fontSize="14px" isDisabled={isFinished} value={stakingFees} decimals={2} unit="%" />
+          
         </StyledDetails>
       </div>
       <CardFooter

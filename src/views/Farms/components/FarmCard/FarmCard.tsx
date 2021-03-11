@@ -95,11 +95,7 @@ interface FarmCardProps {
 
 const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice, ethPrice, ethereum, account }) => {
   const TranslateString = useI18n()
-  console.log("farm",farm);
-  console.log("cake",cakePrice);
-  console.log("bnb",bnbPrice);
-  console.log("eth",ethPrice);
-  console.log("ethereum",ethereum);
+ 
   const [showExpandableSection, setShowExpandableSection] = useState(false)
 
   const isCommunityFarm = communityFarms.includes(farm.tokenSymbol)

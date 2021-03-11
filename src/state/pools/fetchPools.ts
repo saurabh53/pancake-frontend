@@ -1,5 +1,6 @@
 import poolsConfig from 'config/constants/pools'
 import sousChefABI from 'config/abi/sousChef.json'
+import masterChefABI from 'config/abi/masterchef.json'
 import manyABI from 'config/abi/many.json'
 import wbnbABI from 'config/abi/weth.json'
 import { QuoteToken } from 'config/constants/types'

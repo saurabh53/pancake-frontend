@@ -2,6 +2,7 @@ import BigNumber from 'bignumber.js'
 import { ethers } from 'ethers'
 
 export const approve = async (lpContract, masterChefContract, account) => {
+  
   return lpContract.methods
     .approve(masterChefContract.options.address, ethers.constants.MaxUint256)
     .send({ from: account })
@@ -44,8 +45,7 @@ export const sousStakeBnb = async (sousChefContract, amount, account) => {
 }
 
 export const saleManyBnb = async (saleManyContract, amount, account) => {
-  console.log('Inhelperamount', amount)
-  console.log('Inhelperaccount', account)
+ 
 
   return saleManyContract.methods
     .purchaseMANYTokens()
