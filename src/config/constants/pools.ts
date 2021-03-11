@@ -49,7 +49,7 @@ const pools: PoolConfig[] = [
     poolCategory: PoolCategory.BINANCE,
     projectLink: 'https://manyswap.io/',
     harvest: true,
-    tokenPerBlock: '0.1',
+    tokenPerBlock: '0.5',
     sortOrder: 1,
     isFinished: false,
     tokenDecimals: 18,
