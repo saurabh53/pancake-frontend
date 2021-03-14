@@ -199,15 +199,16 @@ export const useAchievements = () => {
   const achievements: AchievementState['data'] = useSelector((state: State) => state.achievements.data)
   return achievements
 }
-export const useTotalValue = (): BigNumber => {
-  const { account } = useWallet()
-  const farms = useFarms()
-  const bnbPrice = usePriceBnbBusd()
-  const cakePrice = usePriceCakeBusd()
-  const ethPrice = usePriceEthBusd()
+// export const getTotalValue = () => {
+//   const farms1 = useFarms()
+//   useEffect(() => {
+//     console.log('')
+//   },[])
+// }
+export const getTotalValue = (farms,bnbPrice,cakePrice,ethPrice,pools) => {
   
-  const pools = usePools(account)
   let value = new BigNumber(0)
+  // const farms1 = useFarms()
   
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
