@@ -33,9 +33,9 @@ const config: MenuEntry[] = [
     href: '/ifo',
   },
   {
-    label: 'Document',
+    label: 'Pitch Deck',
     icon: 'MoreIcon',
-    href: 'https://manyswap.io/IFO_GUIDE.pdf',
+    href: 'https://manyswap.io/Pitch_Deck.pdf',
   },
   
   {
