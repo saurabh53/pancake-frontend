@@ -288,7 +288,37 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.MANY,
     quoteTokenAdresses: contracts.many,
-  }
+  },
+  {
+    pid: 20,
+    lpSymbol: 'MANY-BIFI LP',
+    lpAddresses: {
+      97: '0x5bd9f780c7960A80eD5D77F21067CE73F9D8eE5A',
+      56: '0x5bd9f780c7960A80eD5D77F21067CE73F9D8eE5A',
+    },
+    tokenSymbol: 'MANY',
+    tokenAddresses: {
+      97: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+      56: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+    },
+    quoteTokenSymbol: QuoteToken.MANY,
+    quoteTokenAdresses: contracts.many,
+  },
+  {
+    pid: 21,
+    lpSymbol: 'MANY-ALICE LP',
+    lpAddresses: {
+      97: '0x1b27825Fca96AAB3626AE897a8009dDCA3411766',
+      56: '0x1b27825Fca96AAB3626AE897a8009dDCA3411766',
+    },
+    tokenSymbol: 'MANY',
+    tokenAddresses: {
+      97: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+      56: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+    },
+    quoteTokenSymbol: QuoteToken.MANY,
+    quoteTokenAdresses: contracts.many,
+  },
   
   // {
   //   pid: 77,
