@@ -10,9 +10,9 @@ import CakeHarvestBalance from './CakeHarvestBalance'
 import CakeWalletBalance from './CakeWalletBalance'
 
 const StyledFarmStakingCard = styled(Card)`
-  
+background-image: url('/images/space_Banner Left.svg');
   background-repeat: no-repeat;
-  background-position: top right;
+  background-position: center right;
   min-height: 376px;
   
 `
