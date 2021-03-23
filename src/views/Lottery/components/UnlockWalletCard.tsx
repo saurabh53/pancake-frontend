@@ -28,9 +28,9 @@ const UnlockWalletCard = () => {
   return (
     <Card isActive>
       <StyledCardBody>
-        <IconWrapper>
+        {/* <IconWrapper>
           <Ticket />
-        </IconWrapper>
+        </IconWrapper> */}
         <StyledHeading size="md">{TranslateString(1080, 'Unlock wallet to access lottery')}</StyledHeading>
         <UnlockButton />
       </StyledCardBody>
