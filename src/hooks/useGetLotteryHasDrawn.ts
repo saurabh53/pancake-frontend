@@ -9,7 +9,7 @@ import { getLotteryStatus } from 'utils/lotteryUtils'
  * @return {Boolean}
  */
 const useGetLotteryHasDrawn = () => {
-  const [lotteryHasDrawn, setLotteryHasDrawn] = useState(true)
+  const [lotteryHasDrawn, setLotteryHasDrawn] = useState(false)
   const { account } = useWallet()
   const lotteryContract = useLottery()
 

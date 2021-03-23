@@ -9,7 +9,21 @@ const config: MenuEntry[] = [
   {
     label: 'Trade',
     icon: 'TradeIcon',
-    href: `https://exchange.manyswap.io/?r=${window.localStorage.getItem('refer')}`,
+    items: [
+      {
+        label: 'Exchange',
+        href: `https://exchange.manyswap.io/?r=${window.localStorage.getItem('refer')}`,
+      },
+      {
+        label: 'Pancake',
+        href: 'https://exchange.pancakeswap.finance/#/swap?inputCurrency=0x2dd6c9c5bcd16816226542688788932c6e79a600',
+      },
+      {
+        label: 'Julswap',
+        href: 'https://julswap.com/#/swap?inputCurrency=0x2dd6c9c5bcd16816226542688788932c6e79a600',
+      },
+    ],
+    
   },
   {
     label: 'Farms',
@@ -26,6 +40,11 @@ const config: MenuEntry[] = [
     icon: 'InfoIcon',
     href: '/affiliate',
    
+  },
+  {
+    label: 'Lottery',
+    icon: 'TicketIcon',
+    href: '/lottery',
   },
   {
     label: 'Public Sale',

@@ -5,7 +5,7 @@ import { Text, Heading, BaseLayout, Button, LinkExternal, Flex, Image, LogoIcon 
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import Page from 'components/layout/Page'
 import useI18n from 'hooks/useI18n'
-
+import getSponsor from 'utils/getSponsor'
 
 const LaunchIfoCallout = styled(BaseLayout)`
   border-top: 2px solid ${({ theme }) => theme.colors.textSubtle};
@@ -54,6 +54,10 @@ const StyledNotFound = styled.div`
 const Affiliate = () => {
   const TranslateString = useI18n()
   const account = useWallet()
+  
+  
+  
+  
   return (
     <Page>
     <Image src="/images/space_Banner Mobile.svg" alt="ManySwap illustration" width={949} height={384} responsive />
@@ -75,9 +79,8 @@ const Affiliate = () => {
         <LogoIcon width="64px" mb="8px" /> 
         <Heading size="xxl">Refer</Heading>
         <Text >{TranslateString(800, `https://manyswap.io/?r=${account.account}`)}</Text>
-        <Button as="a" href="/" size="sm">
-          {TranslateString(1124, 'Back Home')}
-        </Button>
+       
+       
           
           
         </div>
