@@ -159,12 +159,12 @@ const farms: FarmConfig[] = [
     lpSymbol: 'BNB-CAKE LP',
     lpAddresses: {
       97: '0x19fc76B7162baF99E223683dd7AF37220E7EF3Dd',
-      56: '0x19fc76B7162baF99E223683dd7AF37220E7EF3Dd',
+      56: '0x19fc76B7162baF99E223683dd7AF37220E7EF3Dd'
     },
-    tokenSymbol: 'MANY',
+    tokenSymbol: 'CAKE',
     tokenAddresses: {
-      97: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
-      56: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+      97: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
+      56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,

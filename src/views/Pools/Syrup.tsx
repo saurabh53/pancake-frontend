@@ -42,7 +42,7 @@ const Farm: React.FC = () => {
   }
 
   const poolsWithApy = pools.map((pool) => {
-    console.log(pool.stakingFees)
+    
     const isBnbPool = pool.poolCategory === PoolCategory.BINANCE
     const rewardTokenFarm = farms.find((f) => f.tokenSymbol === pool.tokenName)
     const stakingTokenFarm = farms.find((s) => s.tokenSymbol === pool.stakingTokenName)
@@ -60,7 +60,7 @@ const Farm: React.FC = () => {
       rewardTokenFarm?.tokenPriceVsQuote,
       rewardTokenFarm?.quoteTokenSymbol,
     )
-
+  
     const totalRewardPricePerYear = rewardTokenPriceInBNB.times(pool.tokenPerBlock).times(BLOCKS_PER_YEAR)
     const totalStakingTokenInPool = stakingTokenPriceInBNB.times(getBalanceNumber(pool.totalStaked))
     
