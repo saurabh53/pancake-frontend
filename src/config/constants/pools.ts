@@ -95,7 +95,7 @@ const pools: PoolConfig[] = [
     sortOrder: 1,
     isFinished: false,
     tokenDecimals: 18,
-    stakingFees: 0,
+    stakingFees: 4,
   },
 ]
 
