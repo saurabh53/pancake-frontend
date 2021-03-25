@@ -9,7 +9,7 @@ import { ChevronDown, ChevronUp } from 'react-feather'
 import Balance from 'components/Balance'
 import { CommunityTag, CoreTag, BinanceTag } from 'components/Tags'
 import { PoolCategory } from 'config/constants/types'
-import { usePriceCakeBusd ,usePriceBnbBusd} from 'state/hooks'
+import { usePriceCakeBusd ,usePriceBnbBusd , usePriceCake} from 'state/hooks'
 import CardValue from './CardValue'
 
 const tags = {
@@ -97,8 +97,10 @@ const CardFooter: React.FC<Props> = ({
   const Tag = tags[poolCategory]
   const isBnbPool = poolCategory === PoolCategory.BINANCE
   const isBusdPool = displayName === "BUSD"
+  const isCake = displayName === "CAKE"
   const cakePrice = usePriceCakeBusd()
   const bnbPrice = usePriceBnbBusd()
+  const pancakePrice = usePriceCake()
   return (
     <StyledFooter isFinished={isFinished}>
       <Row>
@@ -139,7 +141,9 @@ const CardFooter: React.FC<Props> = ({
             <CardValue fontSize="14px" isDisabled={isFinished} unit="$" value={getBalanceNumber(totalStaked)* bnbPrice.toNumber()} />}
            {isBusdPool && 
             <CardValue fontSize="14px" isDisabled={isFinished} unit="$" value={getBalanceNumber(totalStaked)} />}
-            {!isBnbPool && !isBusdPool && <CardValue fontSize="14px" isDisabled={isFinished} unit="$" value={getBalanceNumber(totalStaked)*cakePrice.toNumber()} />}
+            {isCake && 
+            <CardValue fontSize="14px" isDisabled={isFinished} unit="$" value={getBalanceNumber(totalStaked) * pancakePrice.toNumber()} />}
+            {!isBnbPool && !isBusdPool && !isCake && <CardValue fontSize="14px" isDisabled={isFinished} unit="$" value={getBalanceNumber(totalStaked)*cakePrice.toNumber()} />}
 
           </Row>
           

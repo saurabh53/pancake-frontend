@@ -99,6 +99,14 @@ export const usePriceCakeBusd = (): BigNumber => {
  
   return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
 }
+export const usePriceCake = (): BigNumber => {
+  const pid = 10 // CAKE-BNB LP
+  const bnbPriceUSD = usePriceBnbBusd()
+  const farm = useFarmFromPid(pid)
+ 
+  return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
+}
+
 
 export const usePriceEthBusd = (): BigNumber => {
   const pid = 4 // ETH-BNB LP
@@ -205,7 +213,7 @@ export const useAchievements = () => {
 //     console.log('')
 //   },[])
 // }
-export const getTotalValue = (farms,bnbPrice,cakePrice,ethPrice,pools) => {
+export const getTotalValue = (farms,bnbPrice,cakePrice,ethPrice,pools , pancakePrice) => {
   
   let value = new BigNumber(0)
   // const farms1 = useFarms()
@@ -218,12 +226,17 @@ export const getTotalValue = (farms,bnbPrice,cakePrice,ethPrice,pools) => {
       if (farm.quoteTokenSymbol === QuoteToken.BNB) {
         val = bnbPrice.times(farm.lpTotalInQuoteToken)
          
-      } else if (farm.quoteTokenSymbol === QuoteToken.MANY) {
+      } else if (farm.quoteTokenSymbol === QuoteToken.MANY  ) {
         val = cakePrice.times(farm.lpTotalInQuoteToken)
       } else if(farm.quoteTokenSymbol === QuoteToken.ETH) 
       {
         val = ethPrice.times(farm.lpTotalInQuoteToken)
       }
+      else if(farm.quoteTokenSymbol === QuoteToken.ETH) 
+      {
+        val = ethPrice.times(farm.lpTotalInQuoteToken)
+      }
+      
       else {
         val = farm.lpTotalInQuoteToken
       }
@@ -244,6 +257,10 @@ export const getTotalValue = (farms,bnbPrice,cakePrice,ethPrice,pools) => {
       } else if(pool.stakingTokenName === QuoteToken.ETH) 
       {
         val = ethPrice.times(getBalanceNumber(pool.totalStaked))
+      }
+      else if(pool.stakingTokenName === QuoteToken.CAKE) 
+      {
+        val = pancakePrice.times(getBalanceNumber(pool.totalStaked))
       }
       else {
         val = getBalanceNumber(pool.totalStaked)
