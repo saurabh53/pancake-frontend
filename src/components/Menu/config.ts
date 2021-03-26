@@ -47,6 +47,21 @@ const config: MenuEntry[] = [
     href: '/lottery',
   },
   {
+    label: 'Listing',
+    icon: 'TradeIcon',
+    items: [
+      {
+        label: 'BSCSCAN',
+        href: `https://bscscan.com/token/0x2dD6c9c5BCD16816226542688788932c6e79A600`,
+      },
+      {
+        label: 'Astrotools',
+        href: 'https://app.astrotools.io/pancake-pair-explorer/0x9001c04faed5c0852bcc8378fab9b76ded8b27eb',
+      }
+    ],
+    
+  },
+  {
     label: 'Public Sale',
     icon: 'IfoIcon',
     href: '/ifo',
