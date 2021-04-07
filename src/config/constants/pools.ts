@@ -31,7 +31,7 @@ const pools: PoolConfig[] = [
     poolCategory: PoolCategory.CORE,
     projectLink: 'https://manyswap.io/',
     harvest: true,
-    tokenPerBlock: '0.28',
+    tokenPerBlock: '0.15',
     sortOrder: 1,
     isFinished: false,
     tokenDecimals: 18,

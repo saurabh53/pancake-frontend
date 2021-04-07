@@ -47,7 +47,7 @@ const CakeStats = () => {
         </Row>
         <Row>
           <Text fontSize="14px">{TranslateString(540, 'New MANY/block')}</Text>
-          <CardValue fontSize="14px" decimals={1} value={2.5} />
+          <CardValue fontSize="14px" decimals={1} value={1.25} />
         </Row>
        
       </CardBody>
