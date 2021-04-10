@@ -51,6 +51,14 @@ const config: MenuEntry[] = [
     icon: 'TradeIcon',
     items: [
       {
+        label: 'CoinMarketCap',
+        href: `https://coinmarketcap.com/currencies/manyswap/`,
+      },
+      {
+        label: 'Coingecko',
+        href: `https://www.coingecko.com/en/coins/many`,
+      },
+      {
         label: 'BSCSCAN',
         href: `https://bscscan.com/token/0x2dD6c9c5BCD16816226542688788932c6e79A600`,
       },
@@ -62,9 +70,9 @@ const config: MenuEntry[] = [
     
   },
   {
-    label: 'Public Sale',
+    label: 'Graph',
     icon: 'IfoIcon',
-    href: '/ifo',
+    href: 'https://graph.manyswap.io',
   },
   {
     label: 'Pitch Deck',
