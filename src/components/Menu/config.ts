@@ -56,7 +56,7 @@ const config: MenuEntry[] = [
       },
       {
         label: 'Coingecko',
-        href: `https://www.coingecko.com/en/coins/many`,
+        href: `https://www.coingecko.com/en/coins/manyswap/`,
       },
       {
         label: 'BSCSCAN',

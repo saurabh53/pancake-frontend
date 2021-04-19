@@ -319,7 +319,81 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.MANY,
     quoteTokenAdresses: contracts.many,
   },
-  
+  {
+    pid: 22,
+    lpSymbol: 'MANY-TLM LP',
+    lpAddresses: {
+      97: '0xeC68f6B6B284BB83417BF66f176C10A0E14c57cC',
+      56: '0xeC68f6B6B284BB83417BF66f176C10A0E14c57cC',
+    },
+    tokenSymbol: 'MANY',
+    tokenAddresses: {
+      97: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+      56: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+    },
+    quoteTokenSymbol: QuoteToken.MANY,
+    quoteTokenAdresses: contracts.many,
+  },
+  {
+    pid: 23,
+    lpSymbol: 'MANY-REEF LP',
+    lpAddresses: {
+      97: '0xD77C82338F990fcc844340318dc36dC4395Ab975',
+      56: '0xD77C82338F990fcc844340318dc36dC4395Ab975',
+    },
+    tokenSymbol: 'MANY',
+    tokenAddresses: {
+      97: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+      56: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+    },
+    quoteTokenSymbol: QuoteToken.MANY,
+    quoteTokenAdresses: contracts.many,
+  },
+  {
+    pid: 24,
+    lpSymbol: 'MANY-DOT LP',
+    lpAddresses: {
+      97: '0xAb3f5D08072b632f5602c1785de15C051579E8DA',
+      56: '0xAb3f5D08072b632f5602c1785de15C051579E8DA',
+    },
+    tokenSymbol: 'MANY',
+    tokenAddresses: {
+      97: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+      56: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+    },
+    quoteTokenSymbol: QuoteToken.MANY,
+    quoteTokenAdresses: contracts.many,
+  },
+  {
+    pid: 25,
+    lpSymbol: 'MANY-ADA LP',
+    lpAddresses: {
+      97: '0x2732eeD99d2C0C73F77e10ACe66499BFD89C17EC',
+      56: '0x2732eeD99d2C0C73F77e10ACe66499BFD89C17EC',
+    },
+    tokenSymbol: 'MANY',
+    tokenAddresses: {
+      97: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+      56: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+    },
+    quoteTokenSymbol: QuoteToken.MANY,
+    quoteTokenAdresses: contracts.many,
+  },
+  {
+    pid: 26,
+    lpSymbol: 'MANY-TKO LP',
+    lpAddresses: {
+      97: '0xF9a7614A32A0e3C98f838c715741B396A9bD5C34',
+      56: '0xF9a7614A32A0e3C98f838c715741B396A9bD5C34',
+    },
+    tokenSymbol: 'MANY',
+    tokenAddresses: {
+      97: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+      56: '0x2dD6c9c5BCD16816226542688788932c6e79A600',
+    },
+    quoteTokenSymbol: QuoteToken.MANY,
+    quoteTokenAdresses: contracts.many,
+  }
   // {
   //   pid: 77,
   //   lpSymbol: 'DODO-BNB LP',
