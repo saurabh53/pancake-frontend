@@ -75,14 +75,19 @@ const config: MenuEntry[] = [
     href: 'https://graph.manyswap.io',
   },
   {
+    label: 'Certik Audit',
+    icon: 'AuditIcon',
+    href: 'https://www.certik.org/projects/manyswap',
+  },
+  {
     label: 'Pitch Deck',
-    icon: 'MoreIcon',
+    icon: 'HamburgerCloseIcon',
     href: 'https://manyswap.io/Pitch_Deck.pdf',
   },
   
   {
     label: 'Info',
-    icon: 'InfoIcon',
+    icon: 'HamburgerIcon',
     href: 'https://info.manyswap.io/',
    
   },
